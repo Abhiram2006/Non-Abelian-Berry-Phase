@@ -1,1 +1,2 @@
-# Introduction of how this article is structured.
+# Structure of this repository
+
