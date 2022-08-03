@@ -1,6 +1,8 @@
 Classical phase transitions occur in systems in which a statistical ensemble of particles interact with one another, resulting in variations in collective behavior as the temperature is varied.
 
-One such system is the Ising model of ferromagnetism, where there are spins on a lattice that interact with each other (Internal energy (kinda)) and they also interact with an external magnetic field (External energy)
+One such system is the Ising model of ferromagnetism, where there are spins on a lattice that interact with each other (Internal energy (kinda)) and they also interact with an external magnetic field (External energy). The Ising model, named after Ernst Ising and William Lenz at its core is a statistical mathematical model of ferromagnetism. The "spins" are essentially a type of magnetic dipole moment, which in the Classical model we assume to be +1/-1. Spins that are aligned, are at a lower energy, spins try to align each with other. At absolute 0 temperature and no non-uniform external magnetic field, we would expect the 
+
+
 
 
 
