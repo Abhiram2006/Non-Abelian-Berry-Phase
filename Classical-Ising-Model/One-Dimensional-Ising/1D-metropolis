@@ -1,0 +1,93 @@
+##importing libraries
+import numpy as np
+from tqdm import tqdm 
+import matplotlib.pyplot as plt
+from matplotlib import patches as pt
+N = 100  ##number of spins
+spin_values = np.array([1,-1])
+Spin_array = np.random.choice(spin_values,size = N)  ##creating spin array
+J = 1.0 ##spin interaction constant
+
+
+
+iter = 500000 ##yes we take such large number of iteration it may kill your computer :3
+########################################################################################################
+    
+temp_array = np.linspace(0.05,4,10)  ##temperature array
+N_iter = int(len(temp_array))  ##number of elements in temperature array , cuz we have to calculate average for each temperature 
+## list for storing average values and thier squared average
+E_avg = np.array([])  ##list for average of energy
+M_avg =np.array([]) ##list for magnetization i.e. total moment per spin 
+E2_avg =np.array([])##list for storing square of energy
+
+Entropy_avg = np.array([])  ##list for entropy
+
+for step in tqdm(range(N_iter)):
+    
+    T = temp_array[step]  ##indexing temperature
+    
+    Beta = 1.0/T 
+
+    spin_array = Spin_array  ##we take  the last state as initial state every time for new temperature 
+    ## Calculating initial energy  
+    energy = 0
+    for k in range(N-1):
+        energy += -J*spin_array[k]*spin_array[k+1]
+
+    m = np.sum(spin_array)   ##total magnetic moment
+        
+    E = []    ##storing energy value in a list
+    E_2 = []   ##storing energy*energy value in a list 
+    Mag = []  ## ##storing magnetic moment value in a list
+    Entropy_array = []  ## ##storing entropy value in a list
+    
+    for i in range(iter):
+        ###these lines have already  been explained earlier
+        r_n = np.random.randint(0,N)
+        sigma_mu = spin_array[r_n]
+        del_m = -2*sigma_mu
+        if(r_n == 0):
+            Sum = 2*J*sigma_mu*(spin_array[1]+spin_array[N-1])
+        elif(r_n == N-1):
+            Sum = 2*J*sigma_mu*(spin_array[N-2]+spin_array[0])
+        else:
+            Sum = 2*J*sigma_mu*(spin_array[r_n+1]+spin_array[r_n-1])
+
+        del_E = Sum
+        
+       
+
+        
+
+        if(np.random.uniform()<np.exp(-Beta*del_E)):
+            spin_array[r_n] = -1*spin_array[r_n]
+            energy += del_E
+            m+= del_m
+        
+            
+
+        else:
+            spin_array[r_n] =spin_array[r_n]
+            
+
+        
+        if(i>=100000 and i%N==0):  ##after 1200000 iteration we will collect data at each Nth step
+            KK = np.where(spin_array==1)
+            n_positive = np.sum(np.ones(N)[KK])
+            n_negative = N-n_positive
+            
+            T_p = np.math.factorial(N)/((np.math.factorial(n_positive))*(np.math.factorial(n_negative)))
+            Entropy = np.log(T_p)       
+            
+            E.append(energy)
+            E_2.append(energy**2)
+            Mag.append(abs(m))
+            Entropy_array.append(Entropy)
+       
+    ####calculating averages and storing them in numpy array
+    E_avg = np.append(E_avg,(np.mean(np.array(E))))
+    M_avg = np.append(M_avg,np.mean(np.array(Mag)))
+    Entropy_avg = np.append(Entropy_avg,(np.mean(np.array(Entropy_array))))
+    E2_avg = np.append(E2_avg,np.mean(np.array(E_2)))
+
+      
