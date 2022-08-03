@@ -6,7 +6,9 @@ This repository is an introduction to Ising models, in specific Transverse Field
   
   ## Classical Ising Model
  
-We will investigate the basic theory of the Classical Ising model and ferromagnetism. Then we investigate a classical Ising chain and show how inherently a phase transition cannot exist in 1 dimension. However, as we investigate the 2D Ising model, we reproduce the standard result that there can exist a phase transition in 2 dimensions using the Peirlesis argument. We then simulate the 2D Ising Model using a naive Metropolis-Hasting algorithm and then an optimised Swendsen Wang Cluster Algorithm. We were able to prove the existence of phase transition in 2 dimensions as expected.
+We will investigate the basic theory of the Classical Ising model and ferromagnetism. We investigate the meaning of a phase transition and the Hamiltonian of the Classical Ising model.
+
+Then we investigate a classical Ising chain and show how inherently a phase transition cannot exist in 1 dimension. However, as we investigate the 2D Ising model, we reproduce the standard result that there can exist a phase transition in 2 dimensions using the Peirlesis argument. We then simulate the 2D Ising Model using a naive Metropolis-Hasting algorithm and then an optimised Swendsen Wang Cluster Algorithm. We were able to prove the existence of phase transition in 2 dimensions as expected.
   
 (All of these Classical Ising model simulations, in specific, have been studied a lot of times in previous works. I have merely included them for educational purposes and is not original research). 
 
