@@ -20,9 +20,7 @@ Here mu represents the magnetic moment and h_i represents the external magnetic 
 
 Combining both these components we arrive at:
 
-
-![d12os](https://user-images.githubusercontent.com/65448559/182870091-91cc70d4-774d-4eda-9eb4-699995c29394.png)
-
+![d12os](https://user-images.githubusercontent.com/65448559/182870912-a054a317-07a6-473a-9e9d-4922e35ddcb2.png)
 
 This non-uniorm Ising model in general, is not solvable to solve analytically. However, an Ising model with no external magnetic field is solvable.
 
