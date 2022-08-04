@@ -5,3 +5,5 @@ The change in free energy of a process has 3 components, its temperature, the ch
 
 
 ![diagram-20220804](https://user-images.githubusercontent.com/65448559/182823649-e94b27a8-53d2-467e-9881-e4fd261e57e1.png)
+
+ΔH represents the enthalpy, or the difference between the final and initial Hamiltonian.
