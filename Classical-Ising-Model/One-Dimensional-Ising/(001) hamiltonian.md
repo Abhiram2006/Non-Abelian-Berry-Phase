@@ -20,14 +20,14 @@ Here mu represents the magnetic moment and h_i represents the external magnetic 
 
 Combining both these components we arrive at:
 
-![d12os](https://user-images.githubusercontent.com/65448559/182870912-a054a317-07a6-473a-9e9d-4922e35ddcb2.png)
+![d12os](https://user-images.githubusercontent.com/65448559/182871473-a509db58-1c0c-463e-bbfe-cc8cf213d973.png)
+
 
 This non-uniorm Ising model in general, is not solvable to solve analytically. However, an Ising model with no external magnetic field is solvable.
 
 The Hamiltonian of such an Ising model is given by just its Internal component:
 
 ![int](https://user-images.githubusercontent.com/65448559/182865639-f954a395-1e0b-4a62-837c-afab031a7bb7.png)
-
 
 
 
