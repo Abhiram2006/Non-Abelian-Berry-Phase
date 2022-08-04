@@ -38,5 +38,12 @@ The configuration probability is given by the Boltzmann distribution with invers
 
 where β = (kBT)−1, and the normalization constant
 
+![Uploading diagram-20220804.png…]()
+
+
+The configuration probability determines the probaility of the spin configuration state occuring at EQUILIBIRUM. Note that just like a Maxwellian distribution we cannot use it if the system is not in equilibrium.
+
+
+
 
 
