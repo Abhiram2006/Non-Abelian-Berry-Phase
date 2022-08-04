@@ -8,6 +8,6 @@ In a 1D Ising chain, Ernst Ising was able to prove that there cannot exist a pha
 
 Using the Peirlesis Argument, we prove why there can exist a phase transition in 2 dimensions. Then when discuss the partition function at low and high temperatures and the Krammer Wannier Duality linking both the cases. 
 
-We then used a naive Metropolis Hasting Algorithm and a optimised cluster Swedsen Wang Algorithm to verify and investigate phase transition behaviour. 
+We then used a naive Metropolis Hasting Algorithm to simulate the 2D ising model. Then we use an optimised cluster Swedsen Wang Algorithm to verify and better near-phase transition behaviour.
 
 
