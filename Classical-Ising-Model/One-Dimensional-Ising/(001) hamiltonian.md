@@ -31,7 +31,12 @@ The Hamiltonian of such an Ising model is given by just its Internal component:
 
 
 
+The configuration probability is given by the Boltzmann distribution with inverse temperature β ≥ 0:
 
+
+![diagram-20220804](https://user-images.githubusercontent.com/65448559/182872071-6ea05596-f3ae-48c3-abde-c42465cbb869.png)
+
+where β = (kBT)−1, and the normalization constant
 
 
 
