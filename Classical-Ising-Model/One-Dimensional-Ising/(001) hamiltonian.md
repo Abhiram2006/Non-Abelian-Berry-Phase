@@ -38,10 +38,17 @@ The configuration probability is given by the Boltzmann distribution with invers
 
 where β = (kBT)−1, and the normalization constant
 
-![Uploading diagram-20220804.png…]()
+
+![diagram-20220804](https://user-images.githubusercontent.com/65448559/182873897-e047df1a-db39-46c4-964f-a18f32e6d09d.png)
 
 
 The configuration probability determines the probaility of the spin configuration state occuring at EQUILIBIRUM. Note that just like a Maxwellian distribution we cannot use it if the system is not in equilibrium.
+
+If J is negative, the model is ferromagnetic
+If J is positive, the model is anti-ferromagnetic.
+If J=0 it is a non-interacting spin system.
+
+
 
 
 
