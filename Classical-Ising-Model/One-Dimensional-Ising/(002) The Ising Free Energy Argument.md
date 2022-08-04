@@ -14,7 +14,12 @@ T represents the temperature (in K) at which the process occurs.
 
 Boltzmann entropy formula:
 
-![diapss](https://user-images.githubusercontent.com/65448559/182861117-9325e3b0-cc92-41f8-9a3b-c78e57e66508.png)
+![diagram-20220804](https://user-images.githubusercontent.com/65448559/182861705-cfc89e6f-8c0a-49f1-98b8-15d02e69beea.png)
 
 Where Ω is the total possible microstates of the system.
 
+The cost of flipping one spin from the ground state (when all are aligned), would be 2J. But since we can break $N$ such bonds (size of the ising chain), the degeneracy would be N and the change in free energy would be:
+
+![diagram-20220804](https://user-images.githubusercontent.com/65448559/182862129-166da086-6364-4e98-9625-c6a9f210299d.png)
+
+In the thermodynamic limit, ΔG<0. So the flipping is spontaneous, and it can never reach a phase transition. As long as temperature isnt absolute 0, at absolute 0 the microstates of the system do not matter, and as long as the flip is favourable it will flip, hence leading to a phase transition. So there cannot be a phase transition as there will be random flipping.
