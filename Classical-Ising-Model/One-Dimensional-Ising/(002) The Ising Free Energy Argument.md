@@ -11,3 +11,10 @@ The change in free energy of a process has 3 components, its temperature, the ch
 T represents the temperature (in K) at which the process occurs.
 
 ΔS represents the change in entropy of the process, i.e change in randomness. However it can be thought of interms of probability/degeneracies.
+
+Boltzmann entropy formula:
+
+![diapss](https://user-images.githubusercontent.com/65448559/182861117-9325e3b0-cc92-41f8-9a3b-c78e57e66508.png)
+
+Where Ω is the total possible microstates of the system.
+
