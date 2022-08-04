@@ -4,3 +4,8 @@ One such system is the Ising model of ferromagnetism, where there are spins on a
 
 
 In a 1D Ising chain, Ernst Ising was able to prove that there cannot exist a phase transition. However, based on this he incorrectly concluded that the Ising model in general does not exhibit phase transitions.
+
+
+Using the Peirlesis Argument, we prove why there can exist a phase transition in 2 dimensions. Then when discuss the partition function at low and high temperatures and the Krammer Wannier Duality linking both the cases. 
+
+
