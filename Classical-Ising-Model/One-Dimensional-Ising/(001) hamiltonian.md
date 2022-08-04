@@ -12,6 +12,15 @@ Internal component:
 
 Also note a very important disctinction, this ising model is discontinuous. In the sense that its in a continuous straight line and the enda are point of discontinuity. However a continuous Ising model may be made where the chain wraps around and the ends start interacting with each other.
 
+External component:
+
+![d12os](https://user-images.githubusercontent.com/65448559/182869125-e0ec8d47-e849-4af9-90b6-d1b303483fa0.png)
+
+Here mu represents the magnetic moment and h_i represents the external magnetic field at site i.
+
+
+
+
 
 
 
