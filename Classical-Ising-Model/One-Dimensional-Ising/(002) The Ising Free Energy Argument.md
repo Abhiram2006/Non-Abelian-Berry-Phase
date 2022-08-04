@@ -9,3 +9,5 @@ The change in free energy of a process has 3 components, its temperature, the ch
 ΔH represents the enthalpy, or the difference between the final and initial Hamiltonian of the process.
 
 T represents the temperature (in K) at which the process occurs.
+
+ΔS represents the change in entropy of the process, i.e change in randomness. However it can be thought of interms of probability/degeneracies.
