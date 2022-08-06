@@ -24,3 +24,32 @@ The next state has six broken bonds:
 <p align="center" width="100%"> 
 <img width="356" alt="Screenshot 2022-08-07 at 1 23 02 AM" src="https://user-images.githubusercontent.com/65448559/183264232-eac83ecf-8562-4d34-8bcd-35d8d0df9dd9.png">
 <p>
+ 
+Here the factor of 2 in degeneracy comes from the two possible orientations: horizontal or vertical of the graph.
+ 
+
+More interesting things happen for the next state with 8 broken bonds, the simplest configuration has two disconnected flipped spins:
+ 
+<p align="center" width="100%"> 
+<img width="685" alt="Screenshot 2022-08-07 at 1 25 43 AM" src="https://user-images.githubusercontent.com/65448559/183264300-cc03c683-3ba8-405c-96e1-7174143112b1.png">
+<p>
+
+The factor of N comes from the position of placing the first graph; the factor of N − 5 arises because the flipped spin in the second graph can sit anywhere apart from on the five vertices used in the first graph. Finally, the factor of 1/2 arises as we double-counted the graphs.
+ 
+There are also three more graphs with the same energy E3:
+<p align="center" width="100%"> 
+<img width="290" alt="Screenshot 2022-08-07 at 1 26 00 AM" src="https://user-images.githubusercontent.com/65448559/183264325-13942ea6-627f-4bbb-a65e-5beccf80c87f.png">
+<p>
+
+<p align="center" width="100%"> 
+<img width="343" alt="Screenshot 2022-08-07 at 1 26 19 AM" src="https://user-images.githubusercontent.com/65448559/183264331-c9d2a1be-c99c-4a76-aaee-79593f16d89d.png">
+<p>
+Here the factor of 2 arises from two orientations (vertical and horizontal)
+<p align="center" width="100%"> 
+ <img width="323" alt="Screenshot 2022-08-07 at 1 26 31 AM" src="https://user-images.githubusercontent.com/65448559/183264354-36b2bc84-8c8d-4866-88f1-cd4de031ae76.png">
+<p> 
+ 
+Here the factor of 4 comes from rotating the graph by 90°. 
+ 
+ 
+ 
