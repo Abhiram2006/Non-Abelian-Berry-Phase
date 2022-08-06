@@ -6,3 +6,9 @@ And for there should be a ordered magnetic phase, the partition function should 
 
 ![diagram-20220807](https://user-images.githubusercontent.com/65448559/183263749-631a1e22-d496-4c80-a763-4ecfb38f3463.png)
 The temperature above which the partition function no longer converges and disorder proceeds, is the critical temperature, which can be approximated to be:
+
+
+
+![diagram-20220807](https://user-images.githubusercontent.com/65448559/183263816-ad71b184-17f2-40f3-8956-922df5baf00b.png)
+
+This was how Peierlesis first came about proving that a phase transition in 2 dimensions is inevitable. Before we examine this behaviour, we need to understand the relation between the two extremes from the point of phase transition.
