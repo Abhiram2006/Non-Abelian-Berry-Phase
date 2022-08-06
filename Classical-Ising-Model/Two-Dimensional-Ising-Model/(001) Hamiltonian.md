@@ -3,6 +3,9 @@ The Hamiltonian of a 2-dimensional Ising model, in theory, is essentially the sa
 Energy of the interaction of a spin with other spins is given by:
 
 
-The energy of interaction with the external spin is given by:
+![diagram-20220807](https://user-images.githubusercontent.com/65448559/183263066-e5ac2462-b32c-4a2b-b6a2-ec83846145eb.png)
+
+
+The energy of interaction with the external magnetic field is given by:
 
 
