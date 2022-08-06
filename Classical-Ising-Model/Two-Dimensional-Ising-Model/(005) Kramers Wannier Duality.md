@@ -26,3 +26,16 @@ are related by:
 <p align="center"> 
   <img width="557" alt="Screenshot 2022-08-07 at 1 54 47 AM" src="https://user-images.githubusercontent.com/65448559/183265083-6215bfb5-1be3-4688-8240-138b615e9457.png">
 <p>
+  
+This means that if you know the thermodynamics of the Ising model at one temperature, then
+you also know the thermodynamics at the other temperature. Notice however, that it does
+not say that all the physics of the two models is equivalent. In particular, when one system
+is in the ordered phase, the other typically lies in the disordered phase.
+One immediate consequence of the duality is that we can use it to compute the exact critical
+temperature Tc. This is the temperature at which the partition function in singular in the
+N → ∞ limit.
+<p align="center"> 
+<img width="251" alt="Screenshot 2022-08-07 at 1 54 56 AM" src="https://user-images.githubusercontent.com/65448559/183265103-6fa16833-76a2-4d6b-8b46-9e7c0be646ed.png">
+<p>
+It is also worth noting that this is totally consistent with the Peierls droplet argument (14) as
+log2 <√2+1<log3.
