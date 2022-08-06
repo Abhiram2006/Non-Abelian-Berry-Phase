@@ -32,3 +32,21 @@ lattice:
 <img width="324" alt="Screenshot 2022-08-07 at 1 44 04 AM" src="https://user-images.githubusercontent.com/65448559/183264742-86fa72fa-a416-4ee8-b7a6-6ece7c86e8cb.png">
 <p>
   
+But there’s a problem: each factor of tanh βJ also comes with a sum over all spins σi and σj. And these are +1 and −1 which means that they simply sum to zero:
+<p align="center">
+<img width="384" alt="Screenshot 2022-08-07 at 1 38 14 AM" src="https://user-images.githubusercontent.com/65448559/183264797-88d6361c-ab1f-401c-9434-37b0a8902e2f.png">
+<p>
+To avoid this, the only way to make sure is so that we sum over an even number of spins on
+each site since then we get factors of σ^2_i^2= 1 and it does not cancel out.
+<p align="center">  
+  <img width="616" alt="Screenshot 2022-08-07 at 1 38 24 AM" src="https://user-images.githubusercontent.com/65448559/183264817-17aa9306-23d9-4c58-93cf-05bfa1a3e617.png">
+<p> 
+The partition function including the first correction becomes
+<p align="center">  
+  <img width="526" alt="Screenshot 2022-08-07 at 1 38 35 AM" src="https://user-images.githubusercontent.com/65448559/183264831-3edbb6ac-9a10-4053-825d-8ed292da366e.png">
+<p> 
+We can go further by finding the next terms by taking graphs of length 6 and the only
+possibilities are:
+<p align="center">  
+  <img width="508" alt="Screenshot 2022-08-07 at 1 38 44 AM" src="https://userimages.githubusercontent.com/65448559/183264840-248a92ce-8b99-40bb-890d-d90fadf9ea24.png">
+<p> 
