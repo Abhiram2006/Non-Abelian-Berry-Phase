@@ -3,3 +3,6 @@ Let us say, we have a 2D lattice of spins in their ground state. We can flip a b
 ![diagram-20220807](https://user-images.githubusercontent.com/65448559/183263667-e0f0a95b-8eaa-46df-88ae-e64b3c5ce691.png)
 
 And for there should be a ordered magnetic phase, the partition function should converge:
+
+![diagram-20220807](https://user-images.githubusercontent.com/65448559/183263749-631a1e22-d496-4c80-a763-4ecfb38f3463.png)
+The temperature above which the partition function no longer converges and disorder proceeds, is the critical temperature, which can be approximated to be:
