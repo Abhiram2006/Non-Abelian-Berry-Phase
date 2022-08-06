@@ -1,6 +1,8 @@
 import numpy as np
 from numpy.random import rand
 import matplotlib.pyplot as plt
+
+
 def random_state(N):
   state=2*np.random.randint(2, size=N)-1
   return state
