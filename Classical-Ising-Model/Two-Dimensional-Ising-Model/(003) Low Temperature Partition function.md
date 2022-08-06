@@ -49,7 +49,19 @@ Here the factor of 2 arises from two orientations (vertical and horizontal)
  <img width="323" alt="Screenshot 2022-08-07 at 1 26 31 AM" src="https://user-images.githubusercontent.com/65448559/183264354-36b2bc84-8c8d-4866-88f1-cd4de031ae76.png">
 <p> 
  
-Here the factor of 4 comes from rotating the graph by 90°. 
+Here the factor of 4 comes from the four-fold symmetry of the graph.
+ 
+Adding all these gives us the partition function as a function of exp(−βJ).
+ 
+<p align="center" width="100%"> 
+<img width="559" alt="Screenshot 2022-08-07 at 1 31 27 AM" src="https://user-images.githubusercontent.com/65448559/183264426-811609ec-ed0a-4d0a-a7c3-6ba5209b2c5c.png">
+<p> 
+ 
+If we take log of the partition function we can observe something nice:
+ 
+<img width="585" alt="Screenshot 2022-08-07 at 1 31 49 AM" src="https://user-images.githubusercontent.com/65448559/183264446-529e152c-e372-4ac9-8a57-b501990ab667.png">
+
+ 
  
  
  
