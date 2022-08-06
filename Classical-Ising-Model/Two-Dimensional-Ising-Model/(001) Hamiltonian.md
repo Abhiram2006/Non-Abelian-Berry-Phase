@@ -9,3 +9,4 @@ Energy of the interaction of a spin with other spins is given by:
 The energy of interaction with the external magnetic field is given by:
 
 
+![diagram-20220807](https://user-images.githubusercontent.com/65448559/183263184-e0976389-6c25-4ae0-aeb0-87edd0ba4753.png)
