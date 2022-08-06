@@ -24,3 +24,11 @@ leading order terms:
 <p align="center">
 <img width="480" alt="Screenshot 2022-08-07 at 1 37 47 AM" src="https://user-images.githubusercontent.com/65448559/183264716-35a46d45-a721-4ad3-a5d3-3d6c10773fd2.png">
 <p>
+
+Now let us correct this formula, expanding the partition function, each power of tanh βJ is
+associated to a nearest neighbour pair ⟨ij⟩. We will represent this by drawing a line on the
+lattice:
+<p align="center">
+<img width="324" alt="Screenshot 2022-08-07 at 1 44 04 AM" src="https://user-images.githubusercontent.com/65448559/183264742-86fa72fa-a416-4ee8-b7a6-6ece7c86e8cb.png">
+<p>
+  
