@@ -10,7 +10,7 @@ Internal component:
 
 {σ} represents the spin configuration, J represents the interaction strength, σ_i represents the spin at lattice site i, σ_j represents the spin at lattice site j. To avoid double-counting, we sum over edges not lattices.
 
-Also note a very important disctinction, this ising model is discontinuous. In the sense that its in a continuous straight line and the enda are point of discontinuity. However a continuous Ising model may be made where the chain wraps around and the ends start interacting with each other.
+Also note a very important disctinction, this Ising model is discontinuous. In the sense that its in a continuous straight line and the enda are point of discontinuity. However a continuous Ising model may be made where the chain wraps around and the ends start interacting with each other.
 
 External component:
 
