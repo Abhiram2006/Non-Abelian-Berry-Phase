@@ -55,3 +55,18 @@ Calculating Magnetisation of a spin configuration
 '''
 def Magnetisation(spinconfig):
     return np.sum(spinconfig)
+
+
+
+'''
+Calculating the Energy and magnetisation with Monte-Carlo Steps
+'''
+
+size       = 10     
+initialise_steps = 2**8
+metropolis_steps = 2**11  
+
+T       = np.linspace(1.25, 3.5, 60); 
+E,M,C,X = np.zeros(nt), np.zeros(nt), np.zeros(nt), np.zeros(nt)
+N1  = 1.0/(metropolis_steps*N**2)
+N2 = 1.0/(metropolis_steps*N**2) 
