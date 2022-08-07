@@ -73,7 +73,7 @@ N2 = 1.0/(metropolis_steps*metropolis_steps*size**2)
 
 
 for Temppoint in range(60):
-    spinconfig = initial(size)         # initialise
+    spinconfig = initial(size)        
 
     E0=0
     E1=0
@@ -92,10 +92,76 @@ for Temppoint in range(60):
         M1 = M1 + Magnetisation(spinconfig)*Magnetisation(spinconfig)
         E1 = E1 + Energy(spinconfig)*Energy(spinconfig)
 
-
-    # divide by number of sites and iteractions to obtain intensive values    
     E[Temppoint] = E0
     M[Temppoint] = 1.0/(metropolis_steps*size**2)*M1
     C[Temppoint] = (1.0/(metropolis_steps*size**2)*E1 - 1.0/(metropolis_steps*metropolis_steps*size**2) *E0**2)*1.0/(T[Temppoint])**2
     X[Temppoint] = (1.0/(metropolis_steps*size**2)*M1 - 1.0/(metropolis_steps*metropolis_steps*size**2) *M0**2)*1.0/(T[Temppoint])
-    
+
+'''
+Plotting the parameters with respect to temperature
+'''
+
+
+f = plt.figure(figsize=(18, 10)); #  
+
+sp =  f.add_subplot(2, 2, 1 );
+plt.scatter(T, C, s=50, marker='o', color='Blue')
+sp.set_title("Specific Heat Capacity per unit spin")
+plt.xlabel("Temperature", fontsize=10);  
+plt.axis('tight');   
+sp.add_patch(
+patches.Rectangle(
+(2, 0.8), # (x,y)
+0.6, # width
+0.58, # height
+# You can add rotation as well with 'angle'
+alpha=0.3, facecolor="red", edgecolor="black", linewidth=3, linestyle='solid')
+)
+
+
+sp =  f.add_subplot(2, 2, 2 );
+plt.scatter(T, abs(M), s=50, marker='o', color='Blue')
+sp.set_title("Magnetization per unit spin")
+plt.xlabel("Temperature", fontsize=10); 
+plt.axis('tight');
+
+sp.add_patch(
+patches.Rectangle(
+(2, 0), # (x,y)
+0.5, # width
+1, # height
+# You can add rotation as well with 'angle'
+alpha=0.3, facecolor="red", edgecolor="black", linewidth=3, linestyle='solid')
+)
+
+sp =  f.add_subplot(2, 2, 3);
+plt.scatter(T, E, s=50, marker='o', color='Blue')
+sp.set_title("Energy per unit spin")     
+plt.xlabel("Temperature", fontsize=10);
+plt.axis('tight');
+sp.add_patch(
+patches.Rectangle(
+(2, -2), # (x,y)
+0.5, # width
+1.4, # height
+# You can add rotation as well with 'angle'
+alpha=0.3, facecolor="red", edgecolor="black", linewidth=3, linestyle='solid')
+)
+
+
+
+sp =  f.add_subplot(2, 2, 4 );
+plt.scatter(T, X, s=50, marker='o', color='Blue')
+sp.set_title("Susceptibility per unit spin")
+plt.xlabel("Temperature", fontsize=10); 
+plt.axis('tight');
+sp.add_patch(
+patches.Rectangle(
+(2, 0), # (x,y)
+0.5, # width
+36, # height
+# You can add rotation as well with 'angle'
+alpha=0.3, facecolor="red", edgecolor="black", linewidth=3, linestyle='solid')
+)
+
+# Add rectangle
