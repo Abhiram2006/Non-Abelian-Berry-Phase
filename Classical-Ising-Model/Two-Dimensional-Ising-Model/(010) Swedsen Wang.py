@@ -1,11 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
 
-np.random.seed(123)
-
-N = 10
-spins_initial = np.random.choice([-1, 1], (N,N))
+size = 10
+spins_initial = np.random.choice([-1, 1], (size,size))
 
 burn = 1500
 evaluation = 2500
@@ -13,26 +10,26 @@ time_steps = burn + evaluation
 
 s_h = 1
 s_v = 1
-up = np.zeros((N,N))
-down = np.zeros((N,N))
-left = np.zeros((N,N))
-right = np.zeros((N,N))
+up = np.zeros((size,size))
+down = np.zeros((size,size))
+left = np.zeros((size,size))
+right = np.zeros((size,size))
 
 
-up[1:N,:] = 1 
-down[0:N-1,:] = up[1:N,:]
-left[:,1:N] = 1 
-right[:,0:N-1] = left[:,1:N]
+up[1:size,:] = 1 
+down[0:size-1,:] = up[1:size,:]
+left[:,1:size] = 1 
+right[:,0:size-1] = left[:,1:size]
 
 def nbr_udlr(s_site, s_array):
-    _N = s_array.shape[0]
+    _size = s_array.shape[0]
     i = s_site[0]
     j = s_site[1]
     
     if i == 0:
         up_site = 0
         down_site = [i+1, j]
-    elif i == _N-1:
+    elif i == _size-1:
         up_site = [i-1,j]
         down_site = 0
     else:
@@ -41,7 +38,7 @@ def nbr_udlr(s_site, s_array):
     if j == 0:
         left_site = 0
         right_site = [i,j+1]
-    elif j == N-1:
+    elif j == size-1:
         left_site = [i,j-1]
         right_site = 0
     else:
@@ -64,12 +61,12 @@ def int_strength(s_site, udlr, up_array, down_array, left_array, right_array):
 def energy_calc(s_array, up_array, down_array, left_array, right_array):
     _N = s_array.shape[0]
     energy = 0
-    for i in range(_N):
-        for j in range(_N):
+    for i in range(_size):
+        for j in range(_size):
             if i == 0:
                 up_neighbour = 0
                 down_neighbour = s_array[i+1,j]
-            elif i == N-1:
+            elif i == size-1:
                 up_neighbour = s_array[i-1,j]
                 down_neighbour = 0
             else:
@@ -78,7 +75,7 @@ def energy_calc(s_array, up_array, down_array, left_array, right_array):
             if j == 0:
                 left_neighbour = 0
                 right_neighbour = s_array[i,j+1]
-            elif j == N-1:
+            elif j == size-1:
                 left_neighbour = s_array[i,j-1]
                 right_neighbour = 0
             else:
@@ -117,40 +114,3 @@ def wolff_step(bt, s_array, up_array, down_array, left_array, right_array):
     for site in cluster:
         s_array[site[0], site[1]] *= -1
     return s_array
-
-N1 = evaluation*N*N
-N2 = evaluation*evaluation*N*N
-
-temp_steps = 60
-temp_min = 1.25
-temp_max = 3.5
-
-temp_array = np.linspace(temp_min, temp_max, num=temp_steps)
-M = np.zeros(temp_steps)
-E = np.zeros(temp_steps)
-C = np.zeros(temp_steps)
-X = np.zeros(temp_steps)
-
-for t in range(temp_steps):
-    spins = spins_initial.copy()
-    M1 = 0
-    M2 = 0
-    E1 = 0
-    E2 = 0
-    beta = 1/temp_array[t]
-    for i in range(time_steps):
-        spins = wolff_step(beta, spins, up, down, left, right)
-        if i > burn:
-            mag_tmp = abs(spins.sum())
-            M1 += mag_tmp
-            M2 += mag_tmp**2
-            energy_tmp = energy_calc(spins, up, down, left, right)
-            E1 += energy_tmp
-            E2 += energy_tmp**2   
-
-        M[t] = M1 / N1
-        E[t] = E1 / N1
-        C[t] = (E2/N1 - E1**2/N2)*beta**2
-        X[t] = (M2/N1 - M1**2/N2)*beta
-
-
