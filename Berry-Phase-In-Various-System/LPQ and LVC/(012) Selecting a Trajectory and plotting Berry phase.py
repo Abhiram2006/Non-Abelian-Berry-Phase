@@ -22,3 +22,20 @@ for i,t in enumerate(ts[:-1]):
     summed_connections.append(np.sum(np.array(dotted_connections),axis=0))
 dotted_connections = np.real(np.array(dotted_connections))
 summed_connections = np.real(np.array(summed_connections))
+
+'''
+Plotting the result
+Now plot the total integrated Berry connection along the path. What you should see is that for trajectories 0-3, 
+the summed Berry connection is equal to  𝜋  or  −𝜋  at the end, while for trajectory 4 it returns to  0 .
+This total integrated Berry connection around a closed path is equal to the Berry phase.
+'''
+
+plt.rcParams['figure.dpi'] =1000
+plt.figure(figsize=(8,6))
+plt.plot(ts[:-1],summed_connections[:,0],label=r'$\gamma_0$')
+plt.plot(ts[:-1],summed_connections[:,0],label=r'$\gamma_1$',linestyle='--')
+plt.xlabel(r'$t$')
+plt.ylabel(r'$\gamma(t)$')
+plt.title('Integrated Berry Phase')
+plt.legend(fontsize=20)
+neaten_plot(plt.gcf())
