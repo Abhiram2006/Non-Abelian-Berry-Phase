@@ -19,7 +19,6 @@ for r1 in r1s:
         Es_row.append(eigenvalues)
     Es.append(Es_row)
 Es = np.array(Es).transpose(2,1,0)
-%matplotlib inline
 
 diff_lim = 0.5
 plt.rcParams['figure.dpi']=2000
