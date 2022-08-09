@@ -30,3 +30,17 @@ ax.set_xlabel(r'$r_1$')
 ax.set_ylabel(r'$r_2$')
 ax.set_title(rf'$|E_1-E_0|<{diff_lim}$')
 neaten_plot(plt.gcf())
+
+
+fig = plt.figure(figsize=(8,6))
+ax = Axes3D(fig)
+R1s,R2s = np.meshgrid(r1s,r2s)
+
+vmin,vmax = np.min(Es)-0.2*np.real(np.min(Es)),np.max(Es)+0.2*np.abs(np.max(Es))
+surf0 = ax.plot_surface(R1s,R2s, Es[0],vmin=vmin,vmax=vmax,cmap=cm.coolwarm,linewidth=1, antialiased=False)
+surf1 = ax.plot_surface(R1s,R2s, Es[1],vmin=vmin,vmax=vmax,cmap=cm.coolwarm,linewidth=1, antialiased=False)
+ax.set_zlim(np.min(Es)-0.2*np.real(np.min(Es)),np.max(Es)+0.2*np.abs(np.max(Es)))
+ax.set_xlabel(r'$r_1$')
+ax.set_ylabel(r'$r_2$')
+neaten_plot(plt.gcf())
+plt.show()
