@@ -1,0 +1,8 @@
+Here we define two Hamiltonians in matrix form, which each depend on two independent parameters  𝑟1  and  𝑟2  and exhibit a conical intersection:
+
+The Linear Vibronic Coupling (LVC) model is the simplest perturbation to a two-state, 2D harmonic oscillator system that exhibits a conical intersection. 
+Its off-diagonal terms are linear in the coordinates, and it exhibits a single conical intersection at 𝑟1=Δ/(𝑘1−𝑘2),  𝑟2=0.
+
+
+The Linear Plus Quadratic (LPQ) model is the next most complex perturbation to the two-state, 2D harmonic oscillator system.
+It exhibits four distinct conical intersections, one at  𝑟1=𝑟2=0  and three at  𝜌=sqrt(r2^2+r1^2) and  𝜃=tan−1(𝑟2/𝑟1)=𝜋/3, 𝜋, and 5𝜋/3 .
