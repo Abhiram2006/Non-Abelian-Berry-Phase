@@ -1,3 +1,4 @@
+
 Es = []
 r1s = np.linspace(-4,4,1000)
 for r1 in r1s:
