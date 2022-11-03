@@ -194,3 +194,107 @@ def H(J, gx, gy, gz,N=1):
             
     H_int=np.sum(np.array(Hps), axis=0)
     return H_field+H_int
+  
+def dot_eigenvectors(v1,v2,axis=0):
+    return np.sum(v1.conj()*v2,axis=axis)
+
+def change_basis(operator,basis):
+    return np.matmul(inv(basis),np.matmul(operator,basis))
+
+def fnsigma_b(gx,gy,gz, N):
+    sigma_elements=[]
+    
+    for i in range(N):
+        H_spin = 1
+        for j in range(i):
+            H_spin = np.kron(H_spin,I)
+        H_spin = np.kron(H_spin,(gx*qt.jmat(0.5,'x') + gy*qt.jmat(0.5,'y') + gz*qt.jmat(0.5,'z')))
+        for j in range(N-i-1):
+            H_spin = np.kron(H_spin,I)
+        sigma_elements.append(H_spin)
+    sigma_field=np.sum(np.array(sigma_elements),axis=0)
+    sigma_field=sigma_field/(np.sqrt(gx**2+gy**2+gz**2))
+    return sigma_field
+
+def J1(gx,gy,gz,N=2):
+    op = fnsigma_b(gx,gy,gz,N=1)
+    for i in range(N-1):
+        op = np.kron(op,np.identity(2))
+    return op
+
+def J2(gx,gy,gz,N=2):
+    op = H(0.5,gx,gy,gz,N=N)
+    e,basis = eigh(op)
+    basis = orthogonalize(basis)
+    for i in range(4):
+        maxval = basis[np.argmax(np.abs(basis[:,i])),i]
+        basis[:,i] = basis[:,i]*np.abs(maxval)/maxval
+    e = np.round(e,3)
+    matrix = np.zeros((4,4))
+    for ue in np.unique(e):
+        indices = np.argwhere(ue==e)[:,0]
+        if indices.size>1:
+            matrix[indices[0],indices[1]] = 1
+            matrix[indices[1],indices[0]] = 1
+            matrix[indices[0],indices[0]] = 1
+            matrix[indices[1],indices[1]] = 1
+        else:
+            matrix[indices[0],indices[0]] = 2
+    
+    return change_basis(matrix,inv(basis))
+    
+    
+
+
+def Berry_connection_Ising(r1,r2,r3,prior_basis=None,dr=0.5,N=2):
+
+    if hasattr(dr, '__iter__'):
+        dr1,dr2,dr3 = dr
+    else:
+        dr1,dr2,dr3 = dr,dr,dr
+        
+    sigma_b0 = qt.Qobj(fnsigma_b(r1, r2, r3, N=N))
+    sigma_b0 = qt.Qobj(J2(r1,r2,r3))
+#     print(sigma_b0)
+    H0 = qt.Qobj(H(1, r1, r2, r3,N=N))
+    c = qt.commutator(H0,sigma_b0)
+    if np.max(np.abs(c.full()))>0:
+        print(c)
+    eigenvalues0,eigenvectors0 = my_simdiag([H0,sigma_b0],evals=True,safe_mode=True,tol=1e-3)
+    ev0 = []
+    for ev in eigenvectors0:
+        ev0.append(ev.full())
+    ev0 = np.array(ev0)[:,:,0].T
+
+    
+    sigma_b1 = qt.Qobj(fnsigma_b(r1+dr1, r2+dr2, r3+dr3, N=N))
+    sigma_b1 = qt.Qobj(J2(r1+dr1,r2+dr2,r3+dr3))
+    H1 = qt.Qobj(H(1, r1+dr1, r2+dr2, r3+dr3,N=N))
+#     print(H1)
+    c = qt.commutator(H1,sigma_b1)
+    if np.max(np.abs(c.full()))>0:
+        print(c)
+        print('does not commute')
+    eigenvalues1,eigenvectors1 = my_simdiag([H1,sigma_b1],evals=True,safe_mode=True,tol=1e-3)
+    ev1 = []
+    
+    for ev in eigenvectors1:
+        ev1.append(ev.full())
+    ev1 = np.array(ev1)[:,:,0].T
+
+    dotted = dot_eigenvectors(ev1,ev0)
+
+    if np.abs(dotted)[1]<0.5:
+        ev1[:,[1,2]] = ev1[:,[2,1]]
+    dotted = dot_eigenvectors(ev1,ev0)
+
+    
+    for i in range(2,4):
+        if np.sign(dot_eigenvectors(np.imag(ev0),np.real(ev1))[i])!=np.sign(dot_eigenvectors(np.imag(ev0),np.real(ev0))[i]):
+            ev1[:,i]*=-1
+            
+            
+            
+    connection = dot_eigenvectors(ev0,ev1-ev0)
+
+    return 1j*connection, ev1, eigenvalues1
