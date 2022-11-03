@@ -30,6 +30,7 @@ def neaten_plot(neatenme, param_dict=param_dict):
             line.set_linewidth(param_dict['linewidth'])
 
             
+            
 def H(J,h1,h2,g=0):
     array = [[-2*J+g,h2,h1,0],[h2,2*J,0,h1],[h1,0,2*J,h2],[0,h1,h2,-2*J-g]]
     return np.array(array)
@@ -69,3 +70,43 @@ def H_big(J,hs):
     H_sites = np.array(H_sites)
     H_field = np.sum(H_sites,axis=0)
     return H_ising+H_field
+  
+gs=[]
+for i in range(-200,201):
+    gs.append(i/100)
+
+Es=[]
+for g in gs:
+      Es.append(np.sort(eig(H_big(1,[g, g,g,  g]))[0]))
+Es=np.array(Es)
+
+plt.plot(gs,Es)
+
+Es = []
+hlim = 5
+h1s, h2s = np.linspace(-hlim,hlim,100),np.linspace(-hlim,hlim,100)
+g = -0.5
+for h1 in h1s:
+    Es_row = []
+    for h2 in h2s:
+        eigenvalues = np.sort(eig(H(1,h1,h2,g=g))[0])
+        Es_row.append(eigenvalues)
+    Es.append(Es_row)
+Es = np.array(Es).transpose(2,1,0)
+Es.shape
+
+
+%matplotlib inline
+fig,ax = plt.subplots(2,2,figsize=(17,15))
+counter = 0
+for i in range(2):
+    for j in range(2):
+#         exec(f'pcm{counter} = ax[{i},{j}].pcolormesh(h1s,h2s,Es[{counter}])')
+#         exec(f'fig.colorbar(pcm{counter},ax=ax[{i},{j}])')
+        pcm = ax[i,j].pcolormesh(h1s,h2s,Es[counter])
+        fig.colorbar(pcm,ax=ax[i,j])
+        ax[i,j].set_xlabel(r'$h_1$')
+        ax[i,j].set_ylabel(r'$h_2$')
+        ax[i,j].set_title(f'E{counter}')
+        counter+=1
+neaten_plot(plt.gcf())
