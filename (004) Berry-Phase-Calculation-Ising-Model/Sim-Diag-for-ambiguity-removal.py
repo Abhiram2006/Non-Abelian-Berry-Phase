@@ -163,3 +163,34 @@ def my_simdiag(ops, evals: bool = True, *,
                 eigvals_out[kk, j] = ops[kk].matrix_element(kets_out[j],
                                                             kets_out[j]).real
         return eigvals_out, kets_out
+
+
+
+I= np.array([[1,0], [0,1]])
+Sz=np.array([[1,0], [0,-1]])
+Sx=np.array([[0,1], [1, 0]])
+Sy=np.array([[0,-1j], [1j, 0]])
+
+def H(J, gx, gy, gz,N=1):
+    H_elements = []
+    for i in range(N):
+        H_spin = 1
+        for j in range(i):
+            H_spin = np.kron(H_spin,I)
+        H_spin = np.kron(H_spin,-1*(gx*Sx + gy*Sy + gz*Sz))
+        for j in range(N-i-1):
+            H_spin = np.kron(H_spin,I)
+        H_elements.append(H_spin)
+    H_field=np.sum(np.array(H_elements),axis=0)
+    Hps=[]  
+    for i in range(N-1):
+        Hp=1
+        for b in range(i):
+            Hp=np.kron(I,Hp)
+        Hp=np.kron(np.kron(Hp, gx*Sx + gy*Sy + gz*Sz), -J*(gx*Sx + gy*Sy + gz*Sz))
+        for a in range(N-i-2):
+            Hp=np.kron(Hp, I)
+        Hps.append(Hp)
+            
+    H_int=np.sum(np.array(Hps), axis=0)
+    return H_field+H_int
