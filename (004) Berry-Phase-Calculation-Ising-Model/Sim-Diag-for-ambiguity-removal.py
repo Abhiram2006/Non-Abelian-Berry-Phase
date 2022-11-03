@@ -298,3 +298,37 @@ def Berry_connection_Ising(r1,r2,r3,prior_basis=None,dr=0.5,N=2):
     connection = dot_eigenvectors(ev0,ev1-ev0)
 
     return 1j*connection, ev1, eigenvalues1
+  
+  
+
+%matplotlib inline
+ts = np.linspace(0,1,1000)
+radius = 10
+r1_path0,r2_path0 = radius*np.cos(2*np.pi*ts), radius*np.sin(2*np.pi*ts)
+r1_path1,r2_path1 = radius*np.cos(2*np.pi*ts), radius*np.sin(2*np.pi*ts)+3
+r1_path3,r2_path3 = 4*radius*np.cos(2*np.pi*ts), 4*radius*np.sin(2*np.pi*ts)
+
+
+
+trajectory = 0
+
+exec(f'r1_path,r2_path = r1_path{trajectory},r2_path{trajectory}')
+dotted_connections = []
+summed_connections = []
+Bz = 0.1
+dr = np.diff(np.array([r1_path,r2_path,np.zeros_like(r1_path)]),axis=1)
+
+N=2
+eigenvalues,eigenvectors = eig(H(0.5, r1_path[0], r2_path[0],Bz,N=N))
+# print(eigenvalues)
+prior_basis = orthogonalize(np.copy(eigenvectors))
+E_diff = [np.abs(eigenvalues[1]-eigenvalues[0])]
+current_basis = [eigenvectors]
+for i,t in enumerate(ts[:-1]):
+    connection,prior_basis,eigenvalues = Berry_connection_Ising(r1_path[i],r2_path[i],Bz,prior_basis,dr=dr[:,i],N=N)
+    dotted_connections.append(connection)
+    summed_connections.append(np.sum(np.array(dotted_connections),axis=0))
+    E_diff.append(np.abs(eigenvalues[1]-eigenvalues[0]))
+    current_basis.append(prior_basis)
+dotted_connections = np.array(dotted_connections)
+summed_connections = np.array(summed_connections)
