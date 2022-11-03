@@ -150,3 +150,29 @@ for rr,r in enumerate(rs):
     Es.append(Es_row)
 Es = np.array(Es).transpose(2,1,0)
 Es.shape
+
+
+%matplotlib notebook
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+
+fig = plt.figure(figsize=(9,8))
+ax = Axes3D(fig)
+
+RR,PHI = np.meshgrid(rs,phis)
+H1s = RR*np.cos(PHI)
+H2s = RR*np.sin(PHI)
+
+E_index = np.array([0,0,1,0,0,1,0,0]).astype(bool)
+
+vmin,vmax = np.min(Es[E_index]),np.max(Es[E_index])
+print(vmin,vmax)
+
+for i in range(Es.shape[0]):
+    if E_index[i]:
+        exec(f'surf{i} = ax.plot_surface(H1s,H2s, Es[{i}],vmin=vmin,vmax=vmax,cmap=cm.coolwarm,linewidth=1, antialiased=False)')
+# ax.set_zlim(vmin,vmax)
+ax.set_xlabel(r'$h_1$')
+ax.set_ylabel(r'$h_2$')
+ax.set_zlabel(r'E')
+neaten_plot(plt.gcf())
