@@ -1,21 +1,6 @@
 # Structure of this repository
 
 This repository is an introduction to Ising models, in specific Transverse Field Ising models. It also introduces the concept of a geometrical/topological phase i.e the Berry panchatantram phase. We investigate how to implement Berry Phase in a Ising model, which inherently has a SU(2) degenerate subspace which makes the eigenbasis ambiguous.
-<details>
-  <summary>Click to expand!</summary>
-  
-  ## Classical Ising Model
- 
-We will investigate the basic theory of the Classical Ising model and ferromagnetism. We investigate the meaning of a phase transition and the Hamiltonian of the Classical Ising model.
 
-Then we investigate a classical Ising chain and show how inherently a phase transition cannot exist in 1 dimension. However, as we investigate the 2D Ising model, we reproduce the standard result that there can exist a phase transition in 2 dimensions using the Peirlesis argument. We then simulate the 2D Ising Model using a naive Metropolis-Hasting algorithm and then an optimised Swendsen Wang Cluster Algorithm. We were able to prove the existence of phase transition in 2 dimensions as expected.
-  
-(All of these Classical Ising model simulations, in specific, have been studied a lot of times in previous works. I have merely included them for educational purposes and is not original research). 
-
-</details>
-
-<details>
-  <summary>Click to expand!</summary>
-  
-  ## Tranverse Field Ising Model
+We studied the phase transition and structure of the classical and transverse field Ising model using computational methods. This was accomplished by observing changes of collective behavior when a parameter of the system was varied. A two-dimensional classical Ising model exhibits a phase transition from order to disorder as the temperature increases. We simulated the transient behavior of the two-dimensional classical Ising Model, using a Naïve Metropolis Algorithm and an optimized cluster algorithm to analyze the phase transition behavior. However, when we look at a Quantum Ising chain, the Hamiltonian is instead an operator on a large Hilbert space which can be factorized as the tensor product of many spin-1/2 Hilbert spaces, and the behavior of the system is defined by the Hamiltonian's eigenvalues and eigenvectors. This Hamiltonian can be modeled numerically as a repeated Kronecker product of Pauli matrices. When the external transverse magnetic field is increased we observed the degeneracy lift in magnetic field parameter space. It is well known that when we move adiabatically in a closed path in parameter space, along with the quantum dynamical phase a geometrical or Berry phase factor is introduced. For a spin-1⁄2 particle in an adiabatically varying magnetic field, the Berry phase can be evaluated exactly. However, in the case of 2 interacting spin-1⁄2 particles, there is a two-fold degeneracy between the states causing the gauge symmetry to be larger than just rotation by a global phase due to ambiguity in the eigenbasis. In such cases an Abelian Berry phase picture is insufficient, as the gauge symmetry group is SU(2), a non-Abelian group.
 
