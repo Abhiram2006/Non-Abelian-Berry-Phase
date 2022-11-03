@@ -110,3 +110,43 @@ for i in range(2):
         ax[i,j].set_title(f'E{counter}')
         counter+=1
 neaten_plot(plt.gcf())
+
+
+%matplotlib notebook
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+
+fig = plt.figure()
+ax = Axes3D(fig)
+H1s,H2s = np.meshgrid(h1s,h2s)
+
+# fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+surf0 = ax.plot_surface(H1s,H2s, Es[0],vmin=-7,vmax=7,cmap=cm.coolwarm,linewidth=1, antialiased=False)
+surf1 = ax.plot_surface(H1s,H2s, Es[1],vmin=-7,vmax=7,cmap=cm.coolwarm,linewidth=1, antialiased=False)
+surf2 = ax.plot_surface(H1s,H2s, Es[2],vmin=-7,vmax=7,cmap=cm.coolwarm,linewidth=1, antialiased=False)
+surf3 = ax.plot_surface(H1s,H2s, Es[3],vmin=-7,vmax=7,cmap=cm.coolwarm,linewidth=1, antialiased=False)
+ax.set_zlim(-7,7)
+ax.set_xlabel(r'$h_1$')
+ax.set_ylabel(r'$h_2$')
+
+
+
+J = 1
+h_max = 5
+h3 = 1.5
+phis = np.linspace(0,2*np.pi,100)
+rs = np.linspace(0,h_max,20)
+
+Es = []
+for rr,r in enumerate(rs):
+    Es_row = []
+    for phi in phis:
+        h1 = np.round(r*np.cos(phi),2)
+        h2 = np.round(r*np.sin(phi),2)        
+        eigenvalues = np.real(np.sort(eig(H_big(J,[h3,h1,h2]))[0]))
+#         if rr==len(rs)-1:
+#             print(h1,h2)
+        Es_row.append(eigenvalues)
+    Es.append(Es_row)
+Es = np.array(Es).transpose(2,1,0)
+Es.shape
