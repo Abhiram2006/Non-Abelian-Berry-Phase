@@ -332,3 +332,22 @@ for i,t in enumerate(ts[:-1]):
     current_basis.append(prior_basis)
 dotted_connections = np.array(dotted_connections)
 summed_connections = np.array(summed_connections)
+
+
+
+%matplotlib inline
+plt.rcParams['figure.dpi'] =1000
+plt.figure(figsize=(8,6))
+
+
+plt.plot(ts[:-1],np.real(summed_connections[:,0]),label=rf'$\gamma_{0}$')
+plt.plot(ts[:-1],np.real(summed_connections[:,1]),label=rf'$\gamma_{1}$')
+plt.plot(ts[:-1],np.real(summed_connections[:,2]),label=rf'$\gamma_{2}$', linestyle='-')
+plt.plot(ts[:-1],np.real(summed_connections[:,3]),label=rf'$\gamma_{3}$', linestyle='--')
+
+plt.xlabel(r'$t$')
+plt.ylabel(r'$\gamma(t)$')
+plt.title('Integrated Berry Phase')
+plt.legend(fontsize=20)
+# plt.ylim(bottom=-10)
+neaten_plot(plt.gcf())
